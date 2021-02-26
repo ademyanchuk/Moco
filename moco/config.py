@@ -13,7 +13,7 @@ MODELS_PATH = PROJ_PATH / "models"
 Config = {
     "debug": False,
     "resume": "",  # empty string or exisiting experiment name
-    "crop_size": 320,
+    "crop_size": 256,
     "batch_size": 32,
     "moco_dim": 128,
     "moco_K": 4096,
