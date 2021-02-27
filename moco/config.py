@@ -12,7 +12,7 @@ MODELS_PATH = PROJ_PATH / "models"
 
 Config = {
     "debug": False,
-    "resume": "exp_26-02-2021-12-31.pth",  # empty string or exisiting experiment name
+    "resume": "exp_26-02-2021-12-31",  # empty string or exisiting experiment name
     "crop_size": 256,
     "batch_size": 32,
     "moco_dim": 128,
