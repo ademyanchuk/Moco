@@ -57,7 +57,7 @@ def resume_checkpoint(
         if log_info:
             logging.info(
                 "Loaded checkpoint '{}' (epoch {})".format(
-                    checkpoint_path, checkpoint["epoch"]
+                    checkpoint_path, resume_epoch
                 )
             )
     else:
