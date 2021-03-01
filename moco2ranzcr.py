@@ -7,7 +7,7 @@ from pathlib import Path
 import torch
 from timm.utils import get_state_dict, unwrap_model
 
-from moco.config import Config
+from moco.config import Config, MODELS_PATH
 from moco.model import ModelMoCo
 
 parser = argparse.ArgumentParser(
@@ -20,7 +20,8 @@ parser.add_argument(
 
 def main():
     """Load the pretrained moco model from args.moco_path and save
-       both moco encoders to the same folder"""
+       both moco encoders to the Moco project models folder"""
+    # !WIP
     args = parser.parse_args()
     checkpoint = Path(args.moco_path)
     assert checkpoint.exists()
@@ -34,11 +35,9 @@ def main():
     _ = resume_checkpoint(model, checkpoint)
     encoder_q = model.encoder_q.net
     encoder_q.reset_classifier(11)  # hard code
-    save_state = {
-        "state_dict": get_state_dict(encoder_q, unwrap_model),
-    }
+    save_state = get_state_dict(encoder_q, unwrap_model)
     torch.save(
-        save_state, f"{checkpoint.parents[0]}/{checkpoint.stem}_q.pth",
+        save_state, f"{MODELS_PATH}/{checkpoint.stem}_q.pth",
     )
 
 
